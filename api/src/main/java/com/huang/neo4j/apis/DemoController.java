@@ -1,8 +1,13 @@
 package com.huang.neo4j.apis;
 
+import com.huang.neo4j.model.UserInfo;
+import com.huang.neo4j.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * @author huang
@@ -12,8 +17,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/neo4j")
 public class DemoController {
+    @Autowired
+    private  UserService userService;
     @RequestMapping(value = "",method = RequestMethod.GET)
     public String neo4j() {
         return "neo4j";
+    }
+
+    @RequestMapping(value = "users",method = RequestMethod.GET)
+    public List<UserInfo> findAllUser() {
+        return userService.findAllUser();
     }
 }

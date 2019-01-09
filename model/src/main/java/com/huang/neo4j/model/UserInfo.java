@@ -1,19 +1,25 @@
 package com.huang.neo4j.model;
 
+import org.neo4j.ogm.annotation.GeneratedValue;
+import org.neo4j.ogm.annotation.GraphId;
+import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
 /**
  * @author timkobe
  */
-@NodeEntity
+@NodeEntity(label = "User")
 public class UserInfo {
-    private String id;
+    @Id
+    @GeneratedValue
+    private Long id;
     private String name;
 
-    public String getId() {
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
