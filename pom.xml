@@ -6,6 +6,7 @@
 
     <groupId>com.huang</groupId>
     <artifactId>main</artifactId>
+    <packaging>pom</packaging>
     <version>1.0.0</version>
 
     <parent>
@@ -15,6 +16,9 @@
     </parent>
     <modules>
         <module>api</module>
+        <module>model</module>
+        <module>service</module>
+        <module>dao</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -23,6 +27,22 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-neo4j</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.neo4j.driver/neo4j-java-driver -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-neo4j</artifactId>
+            <version>5.1.3.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.neo4j.driver</groupId>
+            <artifactId>neo4j-java-driver</artifactId>
+            <version>1.7.2</version>
+        </dependency>
     </dependencies>
     <profiles>
         <profile>
