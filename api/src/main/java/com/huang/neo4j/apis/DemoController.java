@@ -34,4 +34,9 @@ public class DemoController {
         UserInfo user = userService.findUser(0l);
         return user;
     }
+
+    @RequestMapping(value = "/add",method = RequestMethod.POST)
+    public UserInfo addUser() {
+        return userService.addUser();
+    }
 }

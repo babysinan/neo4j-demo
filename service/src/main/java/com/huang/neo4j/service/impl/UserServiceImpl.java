@@ -28,4 +28,13 @@ public class UserServiceImpl implements UserService {
         Optional<UserInfo> byId = userInterface.findById(id, 0);
         return byId.get();
     }
+
+    @Override
+    public UserInfo addUser() {
+        UserInfo user = new UserInfo();
+//        user.setId(12l);
+        user.setName("这是名称");
+        userInterface.save(user);
+        return user;
+    }
 }

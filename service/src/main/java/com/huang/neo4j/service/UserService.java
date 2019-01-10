@@ -10,4 +10,6 @@ import java.util.List;
 public interface UserService {
     List<UserInfo> findAllUser();
     UserInfo findUser(Long id);
+
+    UserInfo addUser();
 }
