@@ -24,8 +24,14 @@ public class DemoController {
         return "neo4j";
     }
 
-    @RequestMapping(value = "users",method = RequestMethod.GET)
+    @RequestMapping(value = "/users",method = RequestMethod.GET)
     public List<UserInfo> findAllUser() {
         return userService.findAllUser();
+    }
+
+    @RequestMapping(value = "/users/1",method = RequestMethod.GET)
+    public UserInfo findUser() {
+        UserInfo user = userService.findUser(0l);
+        return user;
     }
 }

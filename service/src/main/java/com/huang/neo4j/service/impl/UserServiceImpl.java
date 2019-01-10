@@ -4,9 +4,10 @@ import com.huang.neo4j.dao.UserInterface;
 import com.huang.neo4j.model.UserInfo;
 import com.huang.neo4j.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.neo4j.repository.support.SimpleNeo4jRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.*;
 
 /**
  * @author timkobe
@@ -20,5 +21,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserInfo> findAllUser() {
         return userInterface.getUserNodeList();
+    }
+
+    @Override
+    public UserInfo findUser(Long id) {
+        Optional<UserInfo> byId = userInterface.findById(id, 0);
+        return byId.get();
     }
 }

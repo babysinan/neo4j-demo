@@ -11,7 +11,7 @@ import java.util.List;
  * @author timkobe
  */
 @Repository
-public interface UserInterface extends Neo4jRepository {
+public interface UserInterface extends Neo4jRepository<UserInfo,Long> {
     @Query("MATCH (n:User) RETURN n ")
     List<UserInfo> getUserNodeList();
 }
