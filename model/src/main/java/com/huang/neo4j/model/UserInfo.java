@@ -1,9 +1,10 @@
 package com.huang.neo4j.model;
 
-import org.neo4j.ogm.annotation.GeneratedValue;
-import org.neo4j.ogm.annotation.GraphId;
-import org.neo4j.ogm.annotation.Id;
-import org.neo4j.ogm.annotation.NodeEntity;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.neo4j.ogm.annotation.*;
+
+import java.util.List;
+
 /**
  * @author timkobe
  */
@@ -14,6 +15,17 @@ public class UserInfo {
     private Long id;
     private String name;
 
+    @JsonIgnoreProperties("start")
+    @Relationship(type = "Follow")
+    private List<Following> following;
+
+    public List<Following> getFollowing() {
+        return following;
+    }
+
+    public void setFollowing(List<Following> following) {
+        this.following = following;
+    }
 
     public Long getId() {
         return id;

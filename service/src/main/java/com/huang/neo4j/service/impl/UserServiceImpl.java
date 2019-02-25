@@ -37,4 +37,10 @@ public class UserServiceImpl implements UserService {
         userInterface.save(user);
         return user;
     }
+
+    @Override
+    public List<UserInfo> getUserInfoRelationship() {
+        List<UserInfo> relationship = userInterface.getUserInfoRelationship();
+        return relationship;
+    }
 }

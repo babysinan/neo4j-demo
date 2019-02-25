@@ -3,6 +3,7 @@ package com.huang.neo4j.apis;
 import com.huang.neo4j.model.UserInfo;
 import com.huang.neo4j.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,14 +30,19 @@ public class DemoController {
         return userService.findAllUser();
     }
 
-    @RequestMapping(value = "/users/1",method = RequestMethod.GET)
-    public UserInfo findUser() {
-        UserInfo user = userService.findUser(0l);
+    @RequestMapping(value = "/users/{id}",method = RequestMethod.GET)
+    public UserInfo findUser(@PathVariable("id") Integer id) {
+        UserInfo user = userService.findUser(id.longValue());
         return user;
     }
 
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     public UserInfo addUser() {
         return userService.addUser();
+    }
+
+    @RequestMapping(value = "/relations",method = RequestMethod.GET)
+    public List<UserInfo> findUserRelation() {
+        return userService.getUserInfoRelationship();
     }
 }

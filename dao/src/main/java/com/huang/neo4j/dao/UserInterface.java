@@ -17,4 +17,7 @@ public interface UserInterface extends Neo4jRepository<UserInfo,Long> {
 
     @Query("CREATE (n:User{}) RETURN n ")
     void addNode(UserInfo user);
+
+    @Query("match(u:User)-[r:Follow]->(b:User) where u.name = 'huangyun' return u,r,b")
+    List<UserInfo> getUserInfoRelationship();
 }

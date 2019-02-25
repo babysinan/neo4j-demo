@@ -12,4 +12,6 @@ public interface UserService {
     UserInfo findUser(Long id);
 
     UserInfo addUser();
+
+    List<UserInfo> getUserInfoRelationship();
 }
